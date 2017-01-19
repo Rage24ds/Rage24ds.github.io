@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale="1">
+		<title>Collaboration</title>
+		<link rel="shortcut icon" href="https://image.freepik.com/free-icon/crescent-moon-behind-dark-cloud_318-35609.jpg" type="images/x-icon" />
+		<link rel="stylesheet" href="css/style.css"/>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">			
+<style>
+
+{
+    padding: 0;
+    margin: 0;
+    font-family: Arial;
+    font-size: 17px;
+}
+#nav {
+    background-color: rgba(0,0,0,0.7);
+}
+#nav_wrapper {
+    width: 960px;
+    margin: 0 auto;
+    text-align: bottom;
+}
+#nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    min-width: 200px;
+}
+#nav ul li {
+    display: inline-block;
+}
+#nav ul li:hover {
+    background-color: #222;
+}
+#nav ul li a, visited {
+    color: #FFF;
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+}
+#nav ul li:hover ul {
+    display: block;
+}
+#nav ul ul {
+    display: none;
+    position: absolute;
+    background-color: rgba(0,0,0,0.0);
+    border: 5px solid rgba(0,0,0,0.0);
+    border-top: 0;
+    margin-left: -5px;
+}
+#nav ul ul li {
+    display: block;
+}
+#nav ul ul li a:hover {
+    color: #699;
+}
+</style>
+		<style>
+      #cont {display: none; }
+      .show:focus + .hide {display: inline; }
+      .show:focus + .hide + #cont {display: block;}
+        </style>
+		<style type="text/css">
+			
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			body {
+				font-family: Calibri, sans-serif;
+			}
+			.background-wrap {
+				position: fixed;
+				z-index: -500;
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+				top: 0;
+				left: 0;
+			}
+			
+			#video-bg-elem {
+				position: absolute;
+				top: 0;
+				left: 0;
+				min-height: 100%;
+				min-width: 100%;
+			}
+			.content {
+				position: absolute;
+				width: 100%;
+				min-height: 100%;
+				z-index: 1000;
+				background-color: rgba(0,0,0,0.7);
+			}
+			.content h1 {
+				text-align: center;
+				font-size: 65px;
+				text-transform: uppercase;
+				font-weight: 300;
+				color: #fff;
+				padding-top: 15%;
+				margin-bottom: 10px;
+			}
+			.content h2 {
+				text-align: center;
+				font-size: 40px;
+				text-transform: uppercase;
+				font-weight: 300;
+				color: #fff;
+				padding-top: 15%;
+				margin-bottom: 10px;
+			}
+			.content h3 {
+				text-align: center;
+				font-size: 30px;
+				text-transform: uppercase;
+				font-weight: 300;
+				color: #fff;
+				padding-top: 15%;
+				margin-bottom: 10px;
+			}
+			.content h4 {
+				text-align: center;
+				font-size: 20px;
+				text-transform: uppercase;
+				font-weight: 300;
+				color: #4A7E85;
+				padding-top: 15%;
+				margin-bottom: 10px;
+			}
+			.content h5 {
+				text-align: center;
+				font-size: 15px;
+				text-transform: uppercase;
+				font-weight: 300;
+				color: #fff;
+				padding-top: 15%;
+				margin-bottom: 10px;
+			}
+			.content h6 {
+				text-align: center;
+				font-size: 10px;
+				text-transform: uppercase;
+				font-weight: 300;
+				color: #fff;
+				padding-top: 15%;
+				margin-bottom: 10px;
+			}
+			.content p {
+				text-align: center;
+				font-size: 20px;
+				letter-spacing: 3px;
+				color: #aaa;
+			}
+			.content a {
+				text-align: center;
+				font-size: 20px;
+				letter-spacing: 3px;
+				color: #54C6AA;
+			}
+			.content cont {
+				text-align: center;
+				font-size: 20px;
+				letter-spacing: 3px;
+				color: #aaa;
+			}
+			.content panel-title {
+				text-align: center;
+				font-size: 40px;
+				letter-spacing: 3px;
+				color: #aaa;
+			}
+		</style>
+
+		
+	</head>
+	<body>
+		<script src= "https://code.jquery.com/jquery-1.12.0.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<body>
+		
+<div id="nav">
+    <div id="nav_wrapper">
+        <ul>
+            <li> <a href="index.html"><h2>Home</h2></a>
+            </li>
+            <li> <a href="help.html"><h2>Help</h2></a>
+            </li>
+			<li> <a href=""><h2>Sources</h2></a>
+            </li>
+			<li> <a href="credit.html"><h2>Credits</h2></a>
+            </li>
+        </ul>
+    </div>
+</div>
+		
+
+		<div class="background-wrap">
+			<video id="video-bg-elem" preload="auto" autoplay="true" loop="loop" muted="muted"> 
+				<source src="video2.mp4" type="video/mp4">
+				Video not supported
+			</video>          
+		</div>
+
+
+		<div class="content">         
+			<h1>Sources</h1>
+			<p>All Sources for the collaboration</p>
+			<div>
+			<h3><a href="exe.html" target="">Click Sentences or words that are this color</a></h3>
+			<div class="panel-group" id="myaccordian">
+	<div class="panel-panel-primary">
+		<div class="panel-heading"
+		<h1 class="panel-title" data-target="#panel-1" data-toggle="collapse"><h4>THE DIFFENTS BETWEEN NONRENEWABLE AND RENEWABLE-RESOURCES SOURCES</h4></h1>
+		
+		</div>
+		<div class="panel-collapse collapse" id="panel-1">
+			<div class="panel-body">
+			<p><a href="http://www.differencebetween.net/science/difference-between-renewable-and-non-renewable-resources/" target="null"> http://www.differencebetween.net/science/difference-between-renewable-and-non-renewable-resources/</a> <br /><a href="http://www.livestrong.com/article/154658-what-is-the-difference-between-a-renewable-a-nonrenewable-resource"target="null">http://www.livestrong.com/article/154658-what-is-the-difference-between-a-renewable-a-nonrenewable-resource</a></p>
+			</div>
+		</div>
+	</div>
+</div>
+</div>	
+<div>
+			<div class="panel-group" id="myaccordian">
+	<div class="panel-panel-primary">
+		<div class="panel-heading"
+		<h1 class="panel-title" data-target="#panel-2" data-toggle="collapse"><h4>THREE COMMON NONRENEWABLE ENERGY RESOURCES USED IN HOMES SOURCES</h4></h1>
+		
+		</div>
+		<div class="panel-collapse collapse" id="panel-2">
+			<div class="panel-body">
+			<p><a href="http://homeguides.sfgate.com/examples-nonrenewable-energy-sources-78740.html" target="null"> http://homeguides.sfgate.com/examples-nonrenewable-energy-sources-78740.html <br /><a href="http://examples.yourdictionary.com/examples-of-non-renewable-resources.html" target="null">http://examples.yourdictionary.com/examples-of-non-renewable-resources.html <br /> <a href="http://www.differencebetween.net/science/difference-between-renewable-and-non-renewable-resources/" target="null">http://www.differencebetween.net/science/difference-between-renewable-and-non-renewable-resources/<br /><a href="http://nationalgeographic.org/encyclopedia/non-renewable-energy/" target="null"> http://nationalgeographic.org/encyclopedia/non-renewable-energy/</a></p>
+			</div>
+		</div>
+	</div>
+</div>
+</div>			
+<div>
+			<div class="panel-group" id="myaccordian">
+	<div class="panel-panel-primary">
+		<div class="panel-heading"
+		<h1 class="panel-title" data-target="#panel-3" data-toggle="collapse"><h4>A COMBINATION OF (AT LEAST) FIVE ECO-FRIENDLY APPLIANCES, TECHNOLOGIES, OR RENEWABLE ENERGY SOURCES FOR YOUR “GREEN” HOME SOURCES</h4></h1>
+		
+		</div>
+		<div class="panel-collapse collapse" id="panel-3">
+			<div class="panel-body">
+			<p><a href="http://www.greendiary.com/eco-friendly-appliances-green-home.html" target="null"> http://www.greendiary.com/eco-friendly-appliances-green-home.html <br /> <a href="http://home.howstuffworks.com/home-improvement/construction/green/10-technologies-used-in-green-construction.htm" target="null"> http://home.howstuffworks.com/home-improvement/construction/green/10-technologies-used-in-green-construction.htm <br /> <a href="http://listverse.com/2009/05/01/top-10-renewable-energy-sources/" target="null">http://listverse.com/2009/05/01/top-10-renewable-energy-sources/<br /><a href="http://biodiesel.org/" target="null"> http://biodiesel.org/<br /> <a href="http://www.alternative-energy-news.info/technology/solar-power/" target="null"> http://www.alternative-energy-news.info/technology/solar-power/<br /><a href="http://www.solarreviews.com/solar-power/going-solar-faqs/" target="null">http://www.solarreviews.com/solar-power/going-solar-faqs/<br /><a href="https://cleantechnica.com/solar-power/" target="null">https://cleantechnica.com/solar-power/<br /><a href="https://www.solarpowerauthority.com/" target="null">https://www.solarpowerauthority.com<br /><a href="https://cleantechnica.com/solar-power/" target="null"> https://cleantechnica.com/solar-power/<br /><a href="http://www.solarpowerworldonline.com/" target="null">http://www.solarpowerworldonline.com/<br /><a href="http://biodiesel.org/" target="null">http://biodiesel.org/<br /><a href="http://www.fueleconomy.gov/feg/biodiesel.shtml" target="null"> http://www.fueleconomy.gov/feg/biodiesel.shtml <br /><a href="http://www.eia.gov/energyexplained/?page=biofuel_biodiesel_home" target="null"> http://www.eia.gov/energyexplained/?page=biofuel_biodiesel_home <br /><a href="http://www.verticalfarm.com/" target="null">http://www.verticalfarm.com/ <br /><a href="http://www.newyorker.com/magazine/2017/01/09/the-vertical-farm " target="null"> http://www.newyorker.com/magazine/2017/01/09/the-vertical-farm <br /><a href="http://www.treehugger.com/green-architecture/vertical-farms-wrong-so-many-levels." target="null"> http://www.treehugger.com/green-architecture/vertical-farms-wrong-so-many-levels.html<br /><a href="https://www.theguardian.com/environment/2016/aug/14/world-largest-vertical-farm-newark-green-revolution" target="null">https://www.theguardian.com/environment/2016/aug/14/world-largest-vertical-farm-newark-green-revolution</a></p>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+<div>
+
+<div>	
+			<div class="panel-group" id="myaccordian">
+	<div class="panel-panel-primary">
+		<div class="panel-heading"
+		<h1 class="panel-title" data-target="#panel-9" data-toggle="collapse"><h4>IMAGE SOURCES</h4></h1>
+		
+		</div>
+		<div class="panel-collapse collapse" id="panel-9">
+			<div class="panel-body">
+			<p><a href="http://www.tutorvista.com/content/physics/physics-ii/fission-and-fusion/petroleum.php" target="null"> http://www.tutorvista.com/content/physics/physics-ii/fission-and-fusion/petroleum.php <br /> <a href="http://www.eia.gov/oil_gas/natural_gas/special/ngresources/ngresources.html" target="null"> http://www.eia.gov/oil_gas/natural_gas/special/ngresources/ngresources.html <br /><a href="http://www.ucsusa.org/clean_energy/our-energy-choices/coal-and-other-fossil-fuels/how-coal-works.html#.WHqAQVUrLcs" target="null"> http://www.ucsusa.org/clean_energy/our-energy-choices/coal-and-other-fossil-fuels/how-coal-works.html#.WHqAQVUrLcs <br /><a href="https://www.miele.com.au/domestic/refrigerators-freezers-and-wine-conditioners-2497.htm?mat=09017390&name=KFN_14842_SD_ed/cs" target="null"> https://www.miele.com.au/domestic/refrigerators-freezers-and-wine-conditioners-2497.htm?mat=09017390&name=KFN_14842_SD_ed/cs <br /> <a href="http://ductlessmorev.blogspot.com/2015/08/panasonic-ductless-air-conditioner.html" target="null"> http://ductlessmorev.blogspot.com/2015/08/panasonic-ductless-air-conditioner.html <br /><a href="http://www.alternative-energy-news.info/technology/solar-power/" target="null"> http://www.alternative-energy-news.info/technology/solar-power/ <br /><a href="http://www.alternative-energy-news.info/technology/biofuels/biodiesel-fuel//" target="null"> http://www.alternative-energy-news.info/technology/biofuels/biodiesel-fuel/<br /><a href="http://www.enviroalternatives.com/foodverticalfarming.html" target="null"> http://www.enviroalternatives.com/foodverticalfarming.html</a></p>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+
+<div>	
+			<div class="panel-group" id="myaccordian">
+	<div class="panel-panel-primary">
+		<div class="panel-heading"
+		<h1 class="panel-title" data-target="#panel-8" data-toggle="collapse"><h4>VIDEO SOURCES</h4></h1>
+		
+		</div>
+		<div class="panel-collapse collapse" id="panel-8">
+			<div class="panel-body">
+			<p><a href="new 6.html" target="null">https://www.youtube.com/watch?v=b1wQ2LXeF-k&feature=youtu.be<br /> <a href="https://www.youtube.com/watch?v=1clRcxZS52s&feature=youtu.be" target="null">https://www.youtube.com/watch?v=1clRcxZS52s&feature=youtu.be<br /></p>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+
+
+
+		</div>
+	<embed src="3.mp3" autostart="true" loop="true" width="2" height="0">
+	
+	</body>
+</html>

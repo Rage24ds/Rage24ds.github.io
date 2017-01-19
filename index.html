@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale="1">
+		<title>Collaboration</title>
+		<link rel="shortcut icon" href="https://image.freepik.com/free-icon/crescent-moon-behind-dark-cloud_318-35609.jpg" type="images/x-icon" />
+		<link rel="stylesheet" href="css/style.css"/>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">			
+<style>
+
+{
+    padding: 0;
+    margin: 0;
+    font-family: Arial;
+    font-size: 17px;
+}
+#nav {
+    background-color: rgba(0,0,0,0.7);
+}
+#nav_wrapper {
+    width: 960px;
+    margin: 0 auto;
+    text-align: bottom;
+}
+#nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    min-width: 200px;
+}
+#nav ul li {
+    display: inline-block;
+}
+#nav ul li:hover {
+    background-color: #222;
+}
+#nav ul li a, visited {
+    color: #FFF;
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+}
+#nav ul li:hover ul {
+    display: block;
+}
+#nav ul ul {
+    display: none;
+    position: absolute;
+    background-color: rgba(0,0,0,0.0);
+    border: 5px solid rgba(0,0,0,0.0);
+    border-top: 0;
+    margin-left: -5px;
+}
+#nav ul ul li {
+    display: block;
+}
+#nav ul ul li a:hover {
+    color: #699;
+}
+</style>
+		<style>
+      #cont {display: none; }
+      .show:focus + .hide {display: inline; }
+      .show:focus + .hide + #cont {display: block;}
+        </style>
+		<style type="text/css">
+			
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			body {
+				font-family: Calibri, sans-serif;
+			}
+			.background-wrap {
+				position: fixed;
+				z-index: -500;
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+				top: 0;
+				left: 0;
+			}
+			
+			#video-bg-elem {
+				position: absolute;
+				top: 0;
+				left: 0;
+				min-height: 100%;
+				min-width: 100%;
+			}
+			.content {
+				position: absolute;
+				width: 100%;
+				min-height: 100%;
+				z-index: 1000;
+				background-color: rgba(0,0,0,0.7);
+			}
+			.content h1 {
+				text-align: center;
+				font-size: 65px;
+				text-transform: uppercase;
+				font-weight: 300;
+				color: #fff;
+				padding-top: 15%;
+				margin-bottom: 10px;
+			}
+			.content h2 {
+				text-align: center;
+				font-size: 40px;
+				text-transform: uppercase;
+				font-weight: 300;
+				color: #fff;
+				padding-top: 15%;
+				margin-bottom: 10px;
+			}
+			.content h3 {
+				text-align: center;
+				font-size: 30px;
+				text-transform: uppercase;
+				font-weight: 300;
+				color: #fff;
+				padding-top: 15%;
+				margin-bottom: 10px;
+			}
+			.content h4 {
+				text-align: center;
+				font-size: 20px;
+				text-transform: uppercase;
+				font-weight: 300;
+				color: #4A7E85;
+				padding-top: 15%;
+				margin-bottom: 10px;
+			}
+			.content h5 {
+				text-align: center;
+				font-size: 15px;
+				text-transform: uppercase;
+				font-weight: 300;
+				color: #fff;
+				padding-top: 15%;
+				margin-bottom: 10px;
+			}
+			.content h6 {
+				text-align: center;
+				font-size: 10px;
+				text-transform: uppercase;
+				font-weight: 300;
+				color: #4A7E85;
+				padding-top: 15%;
+				margin-bottom: 10px;
+			}
+			.content p {
+				text-align: center;
+				font-size: 20px;
+				letter-spacing: 3px;
+				color: #aaa;
+			}
+			.content a {
+				text-align: center;
+				font-size: 20px;
+				letter-spacing: 3px;
+				color: #aaa;
+			}
+			.content cont {
+				text-align: center;
+				font-size: 20px;
+				letter-spacing: 3px;
+				color: #aaa;
+			}
+			.content panel-title {
+				text-align: center;
+				font-size: 40px;
+				letter-spacing: 3px;
+				color: #aaa;
+			}
+		</style>
+
+		
+	</head>
+	<body>
+		<script src= "https://code.jquery.com/jquery-1.12.0.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<body>
+		
+<div id="nav">
+    <div id="nav_wrapper">
+        <ul>
+            <li><a href="collaboration.html"><h2>Home</h2></a>
+            </li>
+            <li> <a href="help.html"><h2>Help</h2></a>
+            </li>
+			<li> <a href="sources.html"><h2>Sources</h2></a>
+            </li>
+			<li> <a href="credit.html"><h2>Credits</h2></a>
+            </li>
+        </ul>
+    </div>
+</div>
+		
+
+		<div class="background-wrap">
+			<video id="video-bg-elem" preload="auto" autoplay="true" loop="loop" muted="muted"> 
+				<source src="video.mp4" type="video/mp4">
+				Video not supported
+			</video>          
+		</div>
+
+
+		<div class="content">         
+			<h1>ASSESSMENT 4.06 COLLABORATION</h1>
+			<p>In this collaboration I will be talking about different types of energy, how they affect the investment, and what is different between nonrenewable and renewable resources.</p>
+			<h3>WHAT IS THE DIFFERENCE BETWEEN RENEWABLE AMD NONRENEWABLE RESOURCES</h3>
+ 			<p>Renewable resources are resources that can be used repeatedly and is replaced faster than it is used by nature.</p>
+			<h3>LIST THE TREE MOST COMMON NONRENEWABLE RESOURCES</h3>
+			<p>The three most used and most common nonrenewable resources used to heat and power homes in the world are
+			
+			<div>	
+			<div class="panel-group" id="myaccordian">
+	<div class="panel-panel-primary">
+		<div class="panel-heading"
+		<h1 class="panel-title" data-target="#panel-8" data-toggle="collapse"><h6>Clicking the Colored words</h6></h1>
+		
+		</div>
+		<div class="panel-collapse collapse" id="panel-8">
+			<div class="panel-body">
+			<p>Will Bring up more details</p>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+			<div>
+			<div class="panel-group" id="myaccordian">
+	<div class="panel-panel-primary">
+		<div class="panel-heading"
+		<h1 class="panel-title" data-target="#panel-1" data-toggle="collapse"><h4>PETROLEUM</h4></h1>
+		
+		</div>
+		<div class="panel-collapse collapse" id="panel-1">
+			<div class="panel-body">
+			<p>Petroleum is a resource that is extracted from the ground, and is turned into many different fuel sources, the fuel sources that is is turned into is petrol, gasoline, diesel, propane, jet fuel, heating oil, and paraffin wax, the way that it is made is that organic matter settles in water, and loses all its oxygen, then is compressed under a large amount of heat and pressure for millions of years, once all of this has happened you get petroleum.<img src="http://images.tutorvista.com/content/fission-and-fusion/petroleum-occurrence.jpeg" alt="plane" align="middle" width= "478" height="269"/></p>
+			</div>
+		</div>
+	</div>
+</div>
+</div>	
+<div>
+			<div class="panel-group" id="myaccordian">
+	<div class="panel-panel-primary">
+		<div class="panel-heading"
+		<h1 class="panel-title" data-target="#panel-2" data-toggle="collapse"><h4>NATURAL GAS</h4></h1>
+		
+		</div>
+		<div class="panel-collapse collapse" id="panel-2">
+			<div class="panel-body">
+			<p>Natural gas this fuel is a byproduct of organic matter decomposing, and is mostly methane, once the Natural gas has been extracted it is then processed to remove everything from the gas but the methane, the gasses produces many other fuels such as ethane, propane, and butane all if these products are used as fuel to heat home businesses and fuel stoves, it is fairly clean burning but like the rest it is not renewable.<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/GasDepositDiagram.jpg/450px-GasDepositDiagram.jpg" alt="plane" align="middle" width= "478" height="269"/></p>
+			</div>
+		</div>
+	</div>
+</div>
+</div>			
+<div>
+			<div class="panel-group" id="myaccordian">
+	<div class="panel-panel-primary">
+		<div class="panel-heading"
+		<h1 class="panel-title" data-target="#panel-3" data-toggle="collapse"><h4>COAL</h4></h1>
+		
+		</div>
+		<div class="panel-collapse collapse" id="panel-3">
+			<div class="panel-body">
+			<p>Coal is composed organic matter, it is matter that decomposed in peat bogs, and then under a lot of pressure it was formed into a carbon rock, coal is highly combustible and is the world's most used resource for electric production, but coal when burned releases massive amounts of carbon dioxide into the atmosphere, and is the primary factor for the greenhouse effect, so if we were to stop using it after a couple decades the greenhouse effect would begin to retreat, after a couple million years greenhouse gasses will be at normal levels.<img src="http://www.ucsusa.org/sites/default/files/legacy/assets/images/ce/coal-fig-1.JPG" alt="plane" align="middle" width= "478" height="269"/></p>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+<h3>A LIST OF A COMBINATION OF (AT LEAST) FIVE ECO-FRIENDLY APPLIANCES, TECHNOLOGIES, OR RENEWABLE ENERGY SOURCES FOR YOUR “GREEN” HOME</h3>
+<p>5 eco-friendly appliances, technologies, and or renewable energy sources are</p>		
+<div>
+			<div class="panel-group" id="myaccordian">
+	<div class="panel-panel-primary">
+		<div class="panel-heading"
+		<h1 class="panel-title" data-target="#panel-4" data-toggle="collapse"><h4>MIELE KFN 9753 ID REFRIGERATOR</h4></h1>
+		
+		</div>
+		<div class="panel-collapse collapse" id="panel-4">
+			<div class="panel-body">
+			<p>The Miele KFn 9753 ID Refrigerator this refrigerator cost a lot about 3000 us dollars, it has 70 gallons of usable space, guaranteed to last 20 years without any problems, it has a rating of A+ energy star, this mean that 20% more electricity than any refrigerator its size, every 26 gallons inside the refrigerator it uses 1044000 joules or 290 Wats per day, one day it would cost around 2 dollars, 61 dollars a month, 737 dollars in a yea, and 7370 dollars in 10 years.<img src="https://www.miele.com.au/pmedia/30/Z17/20000058987-000-00_20000058987.jpg" alt="plane" align="right" width= "313" height="560"/></p>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+
+<div>
+			<div class="panel-group" id="myaccordian">
+	<div class="panel-panel-primary">
+		<div class="panel-heading"
+		<h1 class="panel-title" data-target="#panel-5" data-toggle="collapse"><h4>PANASONIC CS12KKY AIR CONDITIONER</h4></h1>
+		
+		</div>
+		<div class="panel-collapse collapse" id="panel-5">
+			<div class="panel-body">
+			<p>The Panasonic Cs12KKY air Conditioner, this air conditioner promises to save up to 20% on your electricity bill, this air conditioner is 1 ton and has built-in sensors to detect human presence, so it switches on and off when no one is home, and on when there are people home, the cost of this is 440 dollars.<img src="http://www.ductless.ca/images/panasonic/P-Single-Banner.jpg"</p>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+
+
+<div>
+			<div class="panel-group" id="myaccordian">
+	<div class="panel-panel-primary">
+		<div class="panel-heading"
+		<h1 class="panel-title" data-target="#panel-6" data-toggle="collapse"><h4>SOLAR POWER</h4></h1>
+		
+		</div>
+		<div class="panel-collapse collapse" id="panel-6">
+			<div class="panel-body">
+			<p>Solar power this technology is one that uses the sun's sunlight and converts that into electricity, this process is done by using solar panels, most solar systems are used in remote areas, but it is becoming more used in urban areas, it is estimated that after 20 years of having solar powerhouse it would save 9,000 dollars, so that would be 4,500 dollars in 10 years, and it would cost 25,000 to 35,000 dollars to set up a solar system, but some utility companies will offer you subsidize as much as 50% off the system cost.<img src="http://www.alternative-energy-news.info/images/technical/solar-power.jpg"alt="plane" align="middle" width= "430" height="354"/></p>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+
+<div>
+			<div class="panel-group" id="myaccordian">
+	<div class="panel-panel-primary">
+		<div class="panel-heading"
+		<h1 class="panel-title" data-target="#panel-7" data-toggle="collapse"><h4>BIODIESEL</h4></h1>
+		
+		</div>
+		<div class="panel-collapse collapse" id="panel-7">
+			<div class="panel-body">
+			<p>Biodiesel this fuel is a renewable resource and is made by using renewable resources that are abundant in the U.S, they make Biodiesel with soybean oil, other plant oils, recycled restaurant grease, tallow, other fats and even algae, the EPA reports that biodiesel reduces greenhouse emissions between 57 and 86 percent, compared to petroleum it reduces the lifecycle of greenhouse gasses by 50 percent, though the present is depended on the oil or fat used during production, one gallon of b20 biodiesel cost 20 cents per gallon, while b100 cost 85 cents more than regular diesel.<img src="http://www.alternative-energy-news.info/wp-content/uploads/2015/02/BiodieselCycle.jpg"alt="plane" align="middle" width= "960" height="458"/></p>
+			</div>
+		</div>
+	</div>
+</div>	
+</div>
+
+
+<div>
+			<div class="panel-group" id="myaccordian">
+	<div class="panel-panel-primary">
+		<div class="panel-heading"
+		<h1 class="panel-title" data-target="#panel-9" data-toggle="collapse"><h4>VERTICAL FARMING</h4></h1>
+		
+		</div>
+		<div class="panel-collapse collapse" id="panel-9">
+			<div class="panel-body">
+			<p>By the year 2050 it is suspected that nearly 80% of the world's population would live in urban areas, looking at the current demographic trends it is suspected that the population would increase by 3 billion, to feed all the people it would take 119 hectares of land, this is 20% more than the land that brazil has, at this point in time 80% of all land that is suitable for growing food is in use, the total cost to make a 30 story building for the virtual farm, would be 100 million dollars and this would be just one farm.<iframe width="560" height="315" src="https://www.youtube.com/embed/b1wQ2LXeF-k" frameborder="0" allowfullscreen></iframe> <iframe width="560" height="315" src="https://www.youtube.com/embed/1clRcxZS52s" frameborder="0" allowfullscreen></iframe> <img src="http://www.enviroalternatives.com/Assets%20Images/verticalfarmshelves.jpg"alt="plane" align="middle" width= "960" height="458"/></p>
+			</div>
+		</div>
+	</div>
+</div>	
+</div>
+
+
+		</div>
+	<embed src="1.mp3" autostart="true" loop="true" width="2" height="0">
+	
+	</body>
+</html>

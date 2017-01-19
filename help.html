@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale="1">
+		<title>Collaboration</title>
+		<link rel="shortcut icon" href="https://image.freepik.com/free-icon/crescent-moon-behind-dark-cloud_318-35609.jpg" type="images/x-icon" />
+		<link rel="stylesheet" href="css/style.css"/>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">			
+<style>
+
+{
+    padding: 0;
+    margin: 0;
+    font-family: Arial;
+    font-size: 17px;
+}
+#nav {
+    background-color: rgba(0,0,0,0.7);
+}
+#nav_wrapper {
+    width: 960px;
+    margin: 0 auto;
+    text-align: bottom;
+}
+#nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    min-width: 200px;
+}
+#nav ul li {
+    display: inline-block;
+}
+#nav ul li:hover {
+    background-color: #222;
+}
+#nav ul li a, visited {
+    color: #FFF;
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+}
+#nav ul li:hover ul {
+    display: block;
+}
+#nav ul ul {
+    display: none;
+    position: absolute;
+    background-color: rgba(0,0,0,0.0);
+    border: 5px solid rgba(0,0,0,0.0);
+    border-top: 0;
+    margin-left: -5px;
+}
+#nav ul ul li {
+    display: block;
+}
+#nav ul ul li a:hover {
+    color: #699;
+}
+</style>
+		<style>
+      #cont {display: none; }
+      .show:focus + .hide {display: inline; }
+      .show:focus + .hide + #cont {display: block;}
+        </style>
+		<style type="text/css">
+			
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			body {
+				font-family: Calibri, sans-serif;
+			}
+			.background-wrap {
+				position: fixed;
+				z-index: -500;
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+				top: 0;
+				left: 0;
+			}
+			
+			#video-bg-elem {
+				position: absolute;
+				top: 0;
+				left: 0;
+				min-height: 100%;
+				min-width: 100%;
+			}
+			.content {
+				position: absolute;
+				width: 100%;
+				min-height: 100%;
+				z-index: 1000;
+				background-color: rgba(0,0,0,0.7);
+			}
+			.content h1 {
+				text-align: center;
+				font-size: 65px;
+				text-transform: uppercase;
+				font-weight: 300;
+				color: #fff;
+				padding-top: 15%;
+				margin-bottom: 10px;
+			}
+			.content h2 {
+				text-align: center;
+				font-size: 40px;
+				text-transform: uppercase;
+				font-weight: 300;
+				color: #fff;
+				padding-top: 15%;
+				margin-bottom: 10px;
+			}
+			.content h3 {
+				text-align: center;
+				font-size: 30px;
+				text-transform: uppercase;
+				font-weight: 300;
+				color: #fff;
+				padding-top: 15%;
+				margin-bottom: 10px;
+			}
+			.content h4 {
+				text-align: center;
+				font-size: 20px;
+				text-transform: uppercase;
+				font-weight: 300;
+				color: #4A7E85;
+				padding-top: 15%;
+				margin-bottom: 10px;
+			}
+			.content h5 {
+				text-align: center;
+				font-size: 15px;
+				text-transform: uppercase;
+				font-weight: 300;
+				color: #fff;
+				padding-top: 15%;
+				margin-bottom: 10px;
+			}
+			.content h6 {
+				text-align: center;
+				font-size: 10px;
+				text-transform: uppercase;
+				font-weight: 300;
+				color: #fff;
+				padding-top: 15%;
+				margin-bottom: 10px;
+			}
+			.content p {
+				text-align: center;
+				font-size: 20px;
+				letter-spacing: 3px;
+				color: #aaa;
+			}
+			.content a {
+				text-align: center;
+				font-size: 20px;
+				letter-spacing: 3px;
+				color: #54C6AA;
+			}
+			.content cont {
+				text-align: center;
+				font-size: 20px;
+				letter-spacing: 3px;
+				color: #aaa;
+			}
+			.content panel-title {
+				text-align: center;
+				font-size: 40px;
+				letter-spacing: 3px;
+				color: #aaa;
+			}
+		</style>
+
+		
+	</head>
+	<body>
+		<script src= "https://code.jquery.com/jquery-1.12.0.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<body>
+		
+<div id="nav">
+    <div id="nav_wrapper">
+        <ul>
+            <li> <a href="index.html"><h2>Home</h2></a>
+            </li>
+            <li> <a href="help.html"><h2>Help</h2></a>
+            </li>
+			<li> <a href="sources.html"><h2>Sources</h2></a>
+            </li>
+			<li> <a href="credit.html"><h2>Credits</h2></a>
+            </li>
+        </ul>
+    </div>
+</div>
+		
+
+		<div class="background-wrap">
+			<video id="video-bg-elem" preload="auto" autoplay="true" loop="loop" muted="muted"> 
+				<source src="video1.mp4" type="video/mp4">
+				Video not supported
+			</video>          
+		</div>
+
+
+		<div class="content">         
+			<h1>Help</h1>
+			<div class="panel-group" id="myaccordian">
+	<div class="panel-panel-primary">
+		<div class="panel-heading"
+		<h1 class="panel-title" data-target="#panel-8" data-toggle="collapse"><h4>Clicking The Words that are Colored Like this</h4></h1>
+		
+		</div>
+		<div class="panel-collapse collapse" id="panel-8">
+			<div class="panel-body">
+			<p>Will Bring up more details</p>
+			</div>
+		</div>
+		<h3><a href="ex.html" target="">Click Sentences or words that are this color</a></h3>
+	</div>
+</div>
+</div>
+
+
+	<embed src="2.mp3" autostart="true" loop="true" width="2" height="0">
+	
+	</body>
+</html>
