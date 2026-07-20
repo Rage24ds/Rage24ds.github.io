@@ -10,6 +10,7 @@ on:
       - 'downloads/CrownlessTable_qwen_bootstrap_current.py'
       - 'downloads/CrownlessTable_v0_7_5_voice_recovery.py'
       - 'downloads/CrownlessTable_v0_7_6_direct_recovery.py'
+      - 'downloads/CrownlessTable_v0_7_7_voice_hotfix.py'
       - '.github/workflows/crownless-table-upgrader-check.yml'
   workflow_dispatch:
 
@@ -34,3 +35,4 @@ jobs:
           py -m py_compile downloads/CrownlessTable_qwen_bootstrap_current.py
           py -m py_compile downloads/CrownlessTable_v0_7_5_voice_recovery.py
           py -m py_compile downloads/CrownlessTable_v0_7_6_direct_recovery.py
+          py -m py_compile downloads/CrownlessTable_v0_7_7_voice_hotfix.py
