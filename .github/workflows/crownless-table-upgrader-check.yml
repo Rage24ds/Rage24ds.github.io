@@ -11,6 +11,7 @@ on:
       - 'downloads/CrownlessTable_v0_7_5_voice_recovery.py'
       - 'downloads/CrownlessTable_v0_7_6_direct_recovery.py'
       - 'downloads/CrownlessTable_v0_7_7_voice_hotfix.py'
+      - 'downloads/CrownlessTable_v0_7_8_reference_audio_fix.py'
       - '.github/workflows/crownless-table-upgrader-check.yml'
   workflow_dispatch:
 
@@ -36,3 +37,4 @@ jobs:
           py -m py_compile downloads/CrownlessTable_v0_7_5_voice_recovery.py
           py -m py_compile downloads/CrownlessTable_v0_7_6_direct_recovery.py
           py -m py_compile downloads/CrownlessTable_v0_7_7_voice_hotfix.py
+          py -m py_compile downloads/CrownlessTable_v0_7_8_reference_audio_fix.py
