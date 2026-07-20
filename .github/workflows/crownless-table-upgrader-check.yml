@@ -7,6 +7,9 @@ on:
       - 'downloads/CrownlessTable_v0_7_1_repair.py'
       - 'downloads/CrownlessTable_v0_7_3_equal_players.py'
       - 'downloads/CrownlessTable_v0_7_4_qwen_bootstrap.py'
+      - 'downloads/CrownlessTable_qwen_bootstrap_current.py'
+      - 'downloads/CrownlessTable_v0_7_5_voice_recovery.py'
+      - 'downloads/CrownlessTable_v0_7_6_direct_recovery.py'
       - '.github/workflows/crownless-table-upgrader-check.yml'
   workflow_dispatch:
 
@@ -28,3 +31,6 @@ jobs:
           py -m py_compile downloads/CrownlessTable_v0_7_1_repair.py
           py -m py_compile downloads/CrownlessTable_v0_7_3_equal_players.py
           py -m py_compile downloads/CrownlessTable_v0_7_4_qwen_bootstrap.py
+          py -m py_compile downloads/CrownlessTable_qwen_bootstrap_current.py
+          py -m py_compile downloads/CrownlessTable_v0_7_5_voice_recovery.py
+          py -m py_compile downloads/CrownlessTable_v0_7_6_direct_recovery.py
