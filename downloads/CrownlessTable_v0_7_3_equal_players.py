@@ -1,17 +1,10 @@
 #!/usr/bin/env python3
 """Upgrade Crownless Table 0.7.2 to 0.7.3.
 
-The application still stores legacy setting keys such as human_name internally,
-but no model or public interface is told that any participant is human. Trest
-remains manually directed through the room, while the source of every PC action
-is private infrastructure and irrelevant to the campaign fiction.
-
-Every provider receives a mandatory participant-blindness policy preventing:
-- protagonist or audience-surrogate treatment;
-- plot armor or softened consequences;
-- default leadership or extra narrative gravity;
-- unequal spotlight based on how an action entered the room;
-- inference about manual, model, human, or automated control.
+The application retains legacy setting keys such as human_name internally for
+save compatibility, but no model or public interface is told that any campaign
+participant is human. Trest remains manually directed through the room while
+the source of every PC action stays private and irrelevant to the fiction.
 """
 from __future__ import annotations
 
@@ -67,10 +60,7 @@ def locate_source() -> Path:
             continue
         if SOURCE_VERSION in text and SOURCE_BUILD in text:
             return path.resolve()
-    fail(
-        "A valid Crownless Table 0.7.2 installation was not found. Run the successful "
-        "0.7.2 rebuild first, then run this update."
-    )
+    fail("A valid Crownless Table 0.7.2 installation was not found.")
 
 
 def replace_exact(text: str, old: str, new: str, label: str, expected: int = 1) -> str:
@@ -80,18 +70,19 @@ def replace_exact(text: str, old: str, new: str, label: str, expected: int = 1) 
     return text.replace(old, new)
 
 
-def replace_present(text: str, old: str, new: str, label: str) -> str:
-    count = text.count(old)
-    if count < 1:
-        fail(f"Patch point {label!r} was not found.")
-    return text.replace(old, new)
+def replace_needed(text: str, old: str, new: str, label: str) -> str:
+    """Replace old text, or accept it when an earlier broad replacement already produced new."""
+    if old in text:
+        return text.replace(old, new)
+    if new in text:
+        return text
+    fail(f"Patch point {label!r} was not found in either old or already-updated form.")
 
 
 def patch(text: str) -> str:
     text = replace_exact(text, SOURCE_VERSION, f'VERSION = "{TARGET_VERSION}"', "version")
     text = replace_exact(text, SOURCE_BUILD, f'BUILD_ID = "{TARGET_BUILD}"\n\n{POLICY}', "build and policy")
 
-    # The equality policy is injected into every GPT, Claude, Gemini, and Grok call.
     text = replace_exact(
         text,
         "        prompt = prompt[-MAX_PROMPT_CHARS:]\n",
@@ -108,16 +99,8 @@ def patch(text: str) -> str:
             "with an OpenAI DM and Claude, Gemini, and Grok connected through signed-in CLIs.",
             "module description",
         ),
-        (
-            "PRIMARY HUMAN PLAYER CHARACTER:",
-            "EXISTING PLAYER CHARACTER RECORD:",
-            "character creation primary record",
-        ),
-        (
-            "ADDITIONAL HUMAN PLAYER CHARACTERS:",
-            "ADDITIONAL EXISTING PLAYER CHARACTER RECORDS:",
-            "character creation additional records",
-        ),
+        ("PRIMARY HUMAN PLAYER CHARACTER:", "EXISTING PLAYER CHARACTER RECORD:", "creation primary record"),
+        ("ADDITIONAL HUMAN PLAYER CHARACTERS:", "ADDITIONAL EXISTING PLAYER CHARACTER RECORDS:", "creation additional records"),
         (
             "Do not begin an AI-to-AI conversation. Do not control any human or AI player character other than your own.",
             "Do not begin an unsolicited side conversation. Do not control any player character other than your own. Treat every PC as an equal participant, and do not assume any PC is the protagonist or default leader.",
@@ -131,28 +114,20 @@ def patch(text: str) -> str:
         (
             "Human players control their human PCs. Claude, Gemini, and Grok each control only their own PC through the submitted intentions below.",
             "Each player character is controlled only through that character's submitted action or intention. The mechanism that supplied it is private table infrastructure and irrelevant to the fiction.",
-            "DM control-source privacy",
+            "DM source privacy",
         ),
         (
             "You control the world, NPCs, consequences, pacing, and rules adjudication, but you never invent an action for any player character.",
             "You control the world, NPCs, consequences, pacing, and rules adjudication, but you never invent an action for any player character. Never infer which participant is manually directed, model-directed, or otherwise sourced. Apply equal spotlight, danger, resistance, consequences, and narrative importance to every PC.",
             "DM equal treatment",
         ),
-        (
-            "HUMAN PLAYER CHARACTERS:",
-            "PLAYER CHARACTER RECORDS:",
-            "DM and opening roster headers",
-        ),
+        ("HUMAN PLAYER CHARACTERS:", "PLAYER CHARACTER RECORDS:", "roster headers"),
         (
             "AI PLAYER CHARACTER SHEETS, INCLUDING DM-ONLY SECRETS:",
             "OTHER PLAYER CHARACTER SHEETS, INCLUDING DM-ONLY SECRETS:",
             "DM other records",
         ),
-        (
-            "AI PLAYER CHARACTERS:",
-            "OTHER PLAYER CHARACTER RECORDS:",
-            "opening other records",
-        ),
+        ("AI PLAYER CHARACTERS:", "OTHER PLAYER CHARACTER RECORDS:", "opening other records"),
         (
             "Every listed character is a player character. Open with a grounded, specific situation already in progress.",
             "Every listed character is an equal player character. Open with a grounded, specific situation already in progress. Do not center Trest or any other PC merely because one record appears first or one action arrived through a different control path.",
@@ -166,28 +141,16 @@ def patch(text: str) -> str:
         (
             '  "next_prompt": "A short neutral table decision point addressed to the player characters, never only to Trest unless she alone is affected"',
             '  "next_prompt": "A short neutral table decision point addressed fairly to all affected player characters"',
-            "DM neutral next prompt",
+            "neutral next prompt",
         ),
         (
             '                    "The AI-controlled player characters are ready: " + ", ".join(created_names) + ".",',
             '                    "The player-character roster is ready: " + ", ".join(created_names) + ".",',
             "roster ready event",
         ),
-        (
-            "Primary human character name",
-            "Primary player character name",
-            "UI primary name",
-        ),
-        (
-            "Primary human character sheet",
-            "Primary player character sheet",
-            "UI primary sheet",
-        ),
-        (
-            "Additional human player characters",
-            "Additional player character records",
-            "UI additional records",
-        ),
+        ("Primary human character name", "Primary player character name", "UI primary name"),
+        ("Primary human character sheet", "Primary player character sheet", "UI primary sheet"),
+        ("Additional human player characters", "Additional player character records", "UI additional records"),
         (
             "Paste any additional human-controlled character sheets here. Separate them with headings.",
             "Paste any additional player-character records here. Separate them with headings.",
@@ -198,47 +161,17 @@ def patch(text: str) -> str:
             "Every listed character is an equal player character. Control sources remain private, and the DM may not privilege or control any PC.",
             "UI equality note",
         ),
-        (
-            "OpenAI DM · Human PCs · Claude PC · Gemini PC · Grok PC",
-            "OpenAI DM · Equal player characters · Claude · Gemini · Grok",
-            "UI subtitle",
-        ),
-        (
-            "Human-controlled player character",
-            "Player character · control source private",
-            "UI primary card",
-        ),
-        (
-            "Additional human PCs",
-            "Additional player characters",
-            "UI additional card",
-        ),
-        (
-            "AI PLAYER",
-            "PLAYER",
-            "UI model badges",
-        ),
-        (
-            "# Primary human player character:",
-            "# Primary player character record:",
-            "export primary heading",
-        ),
-        (
-            "# Additional human player characters",
-            "# Additional player character records",
-            "export additional heading",
-        ),
-        (
-            "human_player_characters.md",
-            "player_character_roster.md",
-            "export filename",
-        ),
+        ("OpenAI DM · Human PCs · Claude PC · Gemini PC · Grok PC", "OpenAI DM · Equal player characters · Claude · Gemini · Grok", "UI subtitle"),
+        ("Human-controlled player character", "Player character · control source private", "UI primary card"),
+        ("Additional human PCs", "Additional player characters", "UI additional card"),
+        ("AI PLAYER", "PLAYER", "UI badges"),
+        ("# Primary human player character:", "# Primary player character record:", "export primary heading"),
+        ("# Additional human player characters", "# Additional player character records", "export additional heading"),
+        ("human_player_characters.md", "player_character_roster.md", "export filename"),
     ]
-
     for old, new, label in replacements:
-        text = replace_present(text, old, new, label)
+        text = replace_needed(text, old, new, label)
 
-    # Manual input remains available, but its database provider label no longer announces a human source.
     text = replace_exact(
         text,
         '                acting_character,\n                "human",\n                "player",\n',
@@ -246,7 +179,7 @@ def patch(text: str) -> str:
         "private input source label",
     )
 
-    forbidden_public_phrases = [
+    forbidden = [
         "PRIMARY HUMAN PLAYER",
         "ADDITIONAL HUMAN PLAYER",
         "HUMAN PLAYER CHARACTERS",
@@ -260,10 +193,9 @@ def patch(text: str) -> str:
         "AI PLAYER</span>",
         "human_player_characters.md",
     ]
-    leftovers = [phrase for phrase in forbidden_public_phrases if phrase in text]
+    leftovers = [phrase for phrase in forbidden if phrase in text]
     if leftovers:
         fail("Participant-source language remains after patching: " + ", ".join(leftovers))
-
     return text
 
 
