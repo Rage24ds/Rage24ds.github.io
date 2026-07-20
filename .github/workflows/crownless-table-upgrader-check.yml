@@ -5,6 +5,7 @@ on:
     paths:
       - 'downloads/CrownlessTable_v0_6_0_upgrade.py'
       - 'downloads/CrownlessTable_v0_7_1_repair.py'
+      - 'downloads/CrownlessTable_v0_7_3_equal_players.py'
       - '.github/workflows/crownless-table-upgrader-check.yml'
   workflow_dispatch:
 
@@ -24,3 +25,4 @@ jobs:
         run: |
           py -m py_compile downloads/CrownlessTable_v0_6_0_upgrade.py
           py -m py_compile downloads/CrownlessTable_v0_7_1_repair.py
+          py -m py_compile downloads/CrownlessTable_v0_7_3_equal_players.py
