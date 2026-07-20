@@ -1,10 +1,13 @@
 #!/usr/bin/env python3
 """Repair and run the Crownless Table 0.7 one-click voice-stack upgrade.
 
-The original 0.7.0 upgrader embedded two Python server programs inside another
-triple-single-quoted string. This wrapper changes the outer delimiter to triple
-double quotes, upgrades the generated app identifier to 0.7.1, compiles the
-repaired upgrader, and only then executes it.
+The original 0.7.0 upgrader had two defects:
+1. embedded server programs used the same triple-quote delimiter as their outer string;
+2. the automatic voice startup patch searched for a common ensure_git_repo line
+   that legitimately appears twice in Crownless Table 0.6.0.
+
+This wrapper repairs both issues, compiles the repaired upgrader, and only then
+executes it. The existing installed application is preserved on any failure.
 """
 from __future__ import annotations
 
@@ -41,6 +44,37 @@ def main() -> int:
 
     text = text.replace(opening, 'SERVICE_METHODS = r"""', 1)
     text = text.replace(closing, '\n"""\n\n\ndef patch(text: str) -> str:', 1)
+
+    broad_patch = '''    text = replace_once(
+        text,
+        '        self.ensure_git_repo()\\n',
+        '        self.ensure_git_repo()\\n'
+        '        if not self.demo_override:\\n'
+        '            threading.Thread(target=self.ensure_voice_services, kwargs={"wait": False}, daemon=True).start()\\n',
+        "automatic voice service launch",
+    )
+'''
+    constructor_patch = '''    text = replace_once(
+        text,
+        '        self._init_db()\\n'
+        '        self._seed_defaults()\\n'
+        '        self.export_campaign()\\n'
+        '        self.ensure_git_repo()\\n',
+        '        self._init_db()\\n'
+        '        self._seed_defaults()\\n'
+        '        self.export_campaign()\\n'
+        '        self.ensure_git_repo()\\n'
+        '        if not self.demo_override:\\n'
+        '            threading.Thread(target=self.ensure_voice_services, kwargs={"wait": False}, daemon=True).start()\\n',
+        "automatic voice service launch",
+    )
+'''
+    if text.count(broad_patch) != 1:
+        fail(
+            "The broad automatic voice startup patch was not found exactly once in the downloaded upgrader."
+        )
+    text = text.replace(broad_patch, constructor_patch, 1)
+
     text = text.replace('VERSION = "0.7.0"', 'VERSION = "0.7.1"', 1)
     text = text.replace(
         'BUILD = "one-click-local-voice-stack-document-scroll-v10-20260720"',
@@ -48,7 +82,10 @@ def main() -> int:
         1,
     )
     text = text.replace('CrownlessTable_v0_7_0.py', 'CrownlessTable_v0_7_1.py')
-    text = text.replace('Crownless Table 0.7.0 installed successfully.', 'Crownless Table 0.7.1 installed successfully.')
+    text = text.replace(
+        'Crownless Table 0.7.0 installed successfully.',
+        'Crownless Table 0.7.1 installed successfully.',
+    )
 
     repaired = Path.cwd() / "CrownlessTable_v0_7_1_upgrade_internal.py"
     repaired.write_text(text, "utf-8")
